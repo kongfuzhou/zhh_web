@@ -1,0 +1,21 @@
+package @package
+{
+	/**
+	* @author kfz
+	**/
+	public class @className
+	{
+		@vars
+		public function @className():void
+		{
+			
+		}		
+		
+		<>
+		
+		
+	}
+	
+
+	
+}

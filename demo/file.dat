@@ -1,0 +1,6 @@
+struct TEST{
+    char name[10];
+    char pass[33];
+    int  age;
+    unsigned char flag;
+ };
