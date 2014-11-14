@@ -1,0 +1,19 @@
+.login{
+	background-color:#F1eaB1;
+	width:500px;
+	height:500px;
+	margin:0 auto;
+}
+.loginCnt{
+	position:relative;
+	left:150px;	
+	padding-top:5px;
+}
+.loginCntBtn{
+	margin:5px 0 0 40px;
+}
+.loginTitle{
+	position:relative;
+	left:200px;
+	padding-top:5px;
+}

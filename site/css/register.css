@@ -1,0 +1,19 @@
+.register{
+	background-color:#ff5500;
+	width:500px;
+	height:500px;
+	margin:0 auto;
+}
+.regCnt{
+	position:relative;
+	left:150px;
+	padding-top:5px;
+}
+.regCntBtn{
+	margin:5px 0 0 40px;
+}
+.regTitle{
+	position:relative;
+	left:200px;
+	padding-top:5px;
+}

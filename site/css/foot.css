@@ -1,0 +1,27 @@
+.foot {	
+	width:100%;
+	height:200px;
+	
+}
+.foot li{
+	list-style:none;
+	display:inline;
+}
+
+.fcontent{
+	text-align:center;
+}
+
+.fcontent li a{
+	text-decoration:none;
+	color:#000000;
+}
+
+.fcontent li a:hover{
+	color:#00aa00;
+}
+
+.dateTime{
+	margin:5px 0 0 0;
+	text-align:center;
+}
