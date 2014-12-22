@@ -45,6 +45,42 @@ function success(text)
 {
 	text=content_notnull(text);
 	alert(text);
+	//js对于json字符串的转换
+	//var obj = new Function("return" + text)();//转换后的JSON对象
+	
+	/* text='{"a":"lily","b":"lucy"}';
+	
+	var ary0=new Array(4,{man:{name:"thon"}});
+	
+	var ary=new Array(1,{name:"lily",ary:ary0},"blue",ary0);	
+	var jStr=json_encode(ary); 	
+	alert("jStr 11 ="+jStr);	
+	var obj=json_decode(jStr);
+	alert(obj);	
+	jStr=json_encode(obj);
+	alert("jStr 22 ="+jStr); */
+	
+	/* var obj =eval("("+text+")");
+	obj.ob={key:"kongfu",my:{age:11}};
+	text=json_encode(obj);
+	alert("text:"+text);
+	
+	obj=json_decode(text);
+	
+	//json数据的转换用eval
+	 var json = {
+	   contry:{
+		area:{
+		 man:"12万",
+		 women:"10万"
+		}
+	   }
+	  };
+	
+	var obj=eval(json); 
+	//alert(obj.a);
+	alert(obj.ob.key);
+	alert(obj.ob.my.age); */
 }
 
 

@@ -6,10 +6,68 @@
 
 include_once "siteConfig.php";
 
+
+
 // echo $GLOBAL["mysql"];
+/* $text='{"a":"lily","b":"lucy"}';
+echo $text;
+var_dump(json_decode($text)); */
+$json='{   
+   "fullname": "Sean Kelly",   
+   "org": "SK Consulting",   
+   "emailaddrs": [   
+      {"type": "work", "value": "kelly@seankelly.biz"},   
+      {"type": "home", "pref": 1, "value": "kelly@seankelly.tv"}   
+   ],   
+    "telephones": [   
+      {"type": "work", "pref": 1, "value": "+1 214 555 1212"},   
+      {"type": "fax", "value": "+1 214 555 1213"},   
+      {"type": "mobile", "value": "+1 214 555 1214"}   
+   ],   
+   "addresses": [   
+      {"type": "work", "format": "us",   
+       "value": "1234 Main StnSpringfield, TX 78080-1216"},   
+      {"type": "home", "format": "us",   
+       "value": "5678 Main StnSpringfield, TX 78080-1316"}   
+   ],   
+    "urls": [   
+      {"type": "work", "value": "http://seankelly.biz/"},   
+      {"type": "home", "value": "http://seankelly.tv/"}   
+   ]   
+}  
+';
+
+//var_dump(json_decode($json));
+
+$cls0=new stdClass();
+$cls0->age=11;
+$cls0->name="lucy";
+
+$ary0=array();
+
+array_push($ary0,$cls0);
+
+$cls=new stdClass();
+$cls->ary=$ary0;
+$cls->name="lily";
+
+$ary=array(1);
+array_push($ary,$cls);
+array_push($ary,"blue");
+
+//echo json_encode($ary,1);
+
+// ["1",{"name":"lily",["4",{"man":{"name":"thon"}}]},"blue"]
+// ﻿[1,{"ary":[{"age":11,"name":"lucy"}],"name":"lily"},"blue"]
+
+//var_dump($ary);
+
+
 
 //echo time();
 logDebug("你好吗".rand(1,1000));
+
+
 $action=$_GET["action"];
 switch($action)
 {
@@ -46,6 +104,8 @@ function actionHandler()
 
 <script type="text/javascript" src="commonJS/commonTool.js?v=<?php echo rand(1,10000); ?>" >
 </script>
+<script type="text/javascript" src="commonJS/User.js?v=<?php echo rand(1,10000); ?>" >
+</script>
 
 <script type="text/javascript" >
 
@@ -60,7 +120,7 @@ function actionHandler()
 		<div id="header">
 			<?php
 				
-				include "header_inc.php";
+				include "header/header_inc.php";
 			?>
 		</div>
 		<div class="content">

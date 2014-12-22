@@ -1,11 +1,14 @@
 ﻿<?php
 include_once "siteConfig.php";
-include_once "actionMethod/registerMethod.php";
+include_once "actionMethod/regAndLoginMethod.php";
 
 $mysql=$GLOBAL["mysql"];
 
-$ationList=array("register",
-"verifyRegUname"); //所有请求列表
+$ationList=array(
+"register",
+"verifyRegUname",
+"login",
+); //所有请求列表
 
 $action=$_POST['action'];
 if(in_array($action,$ationList))
@@ -16,6 +19,9 @@ if(in_array($action,$ationList))
 			registerHander();
 			break;
 		case "verifyRegUname":
+			break;
+		case "login":
+			login();
 			break;
 	}
 }else

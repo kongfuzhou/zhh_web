@@ -10,6 +10,8 @@
 <script type="text/javascript" src="commonJS/commonTool.js?v=<?php echo rand(1,10000);?>" >
 </script>
 
+
+
 <script type="text/javascript" src="commonJS/AJAX.js" >
 </script>
 
@@ -30,14 +32,32 @@ function userReg()
 
 function onFocusOut(id)
 {
-	var value=$(id).value;
-	$('s_'+id).innerHTML=value;
+	/* var value=$(id).value;
+	$('s_'+id).innerHTML=value;  */
+	//innerText
 	
 }
 
 function success(text)
 {
-	alert(text);
+	text=content_notnull(text);
+	//alert(text);
+	userInfo=json_decode(text);
+	
+	if(userInfo)
+	{
+		if(userInfo.msg==0)
+		{
+			alert("登录成功!");
+		}else
+		{
+			alert(userInfo.msg);
+		}
+	}else
+	{
+		alert("登录数据异常!");
+	}	
+	toIndex("&userData="+text); 
 }
 
 </script>

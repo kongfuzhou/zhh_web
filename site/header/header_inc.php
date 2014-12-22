@@ -3,6 +3,8 @@
 
 //include_once "siteConfig.php";
 
+
+
 ?>
 <html>
 <head>
@@ -13,10 +15,14 @@
 <link rel="stylesheet" href="css/header.css?v=<?php echo rand(0,10000)?>" type="text/css" />
 <script type="text/javascript" src="commonJS/AJAX.js?v=<?php echo rand(1,10000); ?>" >
 </script>
+
+
+
 <script type="text/javascript" >
 
 function showAccountList()
-{	
+{
+	
 	if($('myAcctSet').style.display=='none' || $('myAcctSet').style.display=='')
 	{
 		$('myAcctSet').style.display='block';		
@@ -26,6 +32,27 @@ function showAccountList()
 		$('myAcctSet').style.display='none';
 	}
 
+}
+
+function onInfoLoadFunc()
+{
+	alert("用户信息页面加载完成");
+	alert($('username'));
+	if($('username'))
+	{
+		$('username').innerText="周";
+		if(userInfo)
+		{
+			for(var i in userInfo)
+			{
+				alert("key="+i);
+			}
+		}else
+		{
+			alert("info 为空");
+		}
+		
+	}
 }
 
 </script>
@@ -39,10 +66,10 @@ function showAccountList()
 	<div class="banner" onselectstart="javascript:return false;">
 		<div class="regLog">
 			<?php				
-						
-				if(!$_SESSION['user'])
+				
+				if(!$_GET['userData'])
 				{
-					$infos=array(
+					/* $infos=array(
 					array('type'=>'submit','name'=>'login','value'=>'登 陆','action'=>'login','target'=>'index.php'),
 					array('type'=>'submit','name'=>'register','value'=>'注 册','action'=>'register','target'=>'index.php')
 					);
@@ -53,11 +80,17 @@ function showAccountList()
 						$temp=$infos[$i];
 						$html.="<a href='{$temp['target']}?action={$temp['action']}'><input type='{$temp['type']}' name='{$temp['name']}' value='{$temp['value']}' /></a>";
 					}
-					echo "<div>".$html."</div>";
+					echo "<div>".$html."</div>"; */
+					include "header/notLogin.php";
+					
 				}else
 				{
-					$user=array('name'=>'切克闹');
-					echo "<div class='userBar' ><span>欢迎您![<a href='#'>{$user['name']}</a>]</span><span onmouseover='' onclick='showAccountList()'><a href='#'>我的账号</a></span></div>";					
+					/* $userData=json_decode($_GET['userData']);
+					$user=array('name'=>$userData->name);
+					echo "<div class='userBar' ><span>欢迎您![<a href='#'>{$user['name']}</a>]</span><span onmouseover='' onclick='showAccountList()'><a href='#'>我的账号</a></span></div>";
+					 */
+					include "header/loginUserInfo.php";
+					
 				} 			
 			?>
 			
@@ -87,7 +120,7 @@ function showAccountList()
 	</div>
 	<?php 
 
-		if($_SESSION['user'])
+		if($_GET['userData'])
 		{							
 			include "myAccountMenu.php";
 		}
